@@ -1,0 +1,46 @@
+.modal { overflow-y: auto; }
+
+#modallocationview .modal-dialog  {min-width:85%}/*;height:75%;}*/ 
+/*#modallocationview .modal-content  {height:100%;}*/
+/*#modallocationview .modal-body  {height:100%;} */
+
+#map-location-canvas{
+	max-width:300px;
+}
+
+#locationimage{
+	max-height: 450px
+}
+
+.offerbutton{
+	position:relative;
+	width:100%;
+	background-color: transparent;
+	border:none;
+}
+.offerbutton:hover{
+	background:rgba(0,0,0,0.1);
+}
+
+.locationoffername{
+	font-size:20px;
+	float: center;
+}
+
+.locationofferranges{
+	font-size:10px;
+	float: right;
+}
+.locationofferrange{
+	text-align: right;
+}
+
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  width: 70%;
+  margin: auto;
+  max-height: 450px;
+}
+
+
+

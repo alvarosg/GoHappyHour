@@ -1,0 +1,26 @@
+.modal { overflow-y: auto; }
+
+#modalofferview .modal-dialog  {min-width:75%}/*;height:75%;}*/ 
+/*#modallocationview .modal-content  {height:100%;}*/
+/*#modallocationview .modal-body  {height:100%;} */
+
+
+.containerofferimage{
+}
+
+#offerimage {
+}
+
+#offerminusvotes,#offerplusvotes{
+	background:rgba(0,0,0,0.1);
+	border:none;
+}
+#offerminusvotes:hover,#offerplusvotes:hover{
+	background:rgba(0,0,0,0.2);
+}
+
+
+#offercomments{
+	max-height:200px;
+	overflow:auto;
+}

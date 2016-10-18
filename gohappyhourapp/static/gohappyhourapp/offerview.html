@@ -1,0 +1,118 @@
+<!doctype html>
+
+
+<link rel="stylesheet" type="text/css" href="/static/gohappyhourapp/offerview.css" />
+
+<script type="text/javascript" src="/static/gohappyhourapp/offerview.js"></script>
+
+
+<div class="modal fade" id="modalofferview" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h4 class="modal-title">Offer</h4>
+        </div>
+        <div class="modal-body">
+            <div id="offerdiv"></div>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<script id="offertemplate" type="text/template">
+{{#if id }}
+    <div class="container-fluid" id="textoffer">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="containerofferimage">
+                <img class="img-responsive center-block" id="offerimage" src={{ offerpictures.0.picture }} />
+            </div>
+        </div>
+        <div class="col-md-6 offertext">
+            <div class="row">
+                <div class="col-md-12 h1"><div id="offername" >{{ name }}</div></div>
+            </div>       
+            <div class="row offerranges">
+
+                {{#each offertimeranges }}
+                    <div class="col-md-12 offerrange h2 text-left">
+                    <small>
+                    {{#each weekdaystrs }}
+                    {{ dayrange }}{{#unless @last}},{{/unless}}{{#if @last}}:{{/if}}
+                    {{/each}}
+                    {{time_start_format}}-{{time_end_format}}
+                    </small>
+                    </div>
+                {{/each}}
+            </div>
+             <div class="row">
+                <div class="col-md-8 text-left">
+                    <div class="btn-group" role="group">
+                      <button id="offerminusvotes" type="button" class="btn btn-default">-{{ minusvotes }}</button>
+                      <button id="offerplusvotes" type="button" class="btn btn-default">+{{ plusvotes }}</button> 
+                    </div>
+                </div>
+            </div>
+            {{#if editable}}
+            <div class="row">
+                <div class="col-md-8 text-left">
+                    <div class="btn-group" role="group">
+                      <button id="offerdelete" type="button" class="btn btn-danger btn-block btnwrap">Delete offer</button>
+                    </div>
+                </div>
+            </div>
+            {{/if}}
+            <div class="row">
+                <div class="col-md-12 h4"><div class="offerdescription">{{ description }}</div></div>
+            </div>
+            <div class="row">
+            <div class="col-md-12">
+            <textarea id="offernewcomment" rows="4" name="offernewcomment" class="form-control"></textarea>
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-md-12">
+            <button id="offersendcomment" type="button" class="btn btn-default">Send Comment</button> 
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-md-12">
+            <div id="offercomments" class="container-fluid"></div>
+            </div>
+            </div>
+        </div>
+    </div>
+    </div>     
+    
+{{else }}
+    <p>Offer does not exist</p>
+{{/if}}
+</script>
+
+<script id="commentstemplate" type="text/template">
+{{#if count }}
+    {{#each results }}
+        <div class="row">
+        <div class="col-md-12 offercomment">
+        <div class="row">
+            <div class="col-md-12 offercommentowner text-right h5">{{userlabel}}<div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 offercommentdate text-right h6">{{date_edited}}<div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 offercommenttext text-left h4">{{comment}}<div>
+        </div>
+        </div>
+        </div>
+    {{/each}}
+{{else }}
+    <div class="row">
+    <div class="col-md-12 offercomment">
+    <div class="textnocomments">Be the first one to add a comment</div>
+    </div>
+    </div>
+{{/if}}
+</script>
+

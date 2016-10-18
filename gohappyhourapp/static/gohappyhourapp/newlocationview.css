@@ -1,0 +1,11 @@
+.modal { overflow-y: auto; }
+
+#modalnewlocationview .modal-dialog  {min-width:75%}
+
+#map-newlocation-canvas{
+	max-width:300px;
+}
+
+
+
+

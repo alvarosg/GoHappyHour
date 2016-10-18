@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+{% if location %}
+    <br><img src={{ location.picture }} />
+    <br>{{ location.name }}
+    <ul>
+    {% for offer in location.offers %}
+        <li>{{ offer.name }}</a></li>
+        <ul>
+        {% for timerange in offer.offertimeranges %}
+            <li>{{ timerange.weekdays }}</a></li>
+        {% endfor %}
+        </ul>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Location does not exist</p>
+{% endif %}
+</html>

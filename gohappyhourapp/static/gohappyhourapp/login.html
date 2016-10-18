@@ -1,0 +1,43 @@
+<!doctype html>
+
+<link rel="stylesheet" type="text/css" href="/static/gohappyhourapp/login.css" />
+
+<script src="https://apis.google.com/js/platform.js"></script>  
+<script src="//connect.facebook.net/en_US/all.js"></script>
+<script type="text/javascript" src="/static/gohappyhourapp/login.js"></script>
+
+
+<div id="loginbuttons" class="container-fluid pull-left">
+<div class="row">
+<div class="col-xs-6"><fb:login-button id="fblogin" scope="public_profile,email" size="large">Sign In</fb:login-button></div>
+<div class="col-xs-6"><div id="googlelogin"></div></div>
+</div>
+</div>
+
+<div id="logininfobox" class="container-fluid pull-left">
+<div class="row">
+<div class="col-xs-12">
+<div class="show panel panel-default pull-left" id="panellogininfo">
+<div class="panel-body" id="logininfo"></div></div><button id="logout" type="button" class="btn btn-default">Log out</button></div>
+</div>
+</div>
+</div>
+
+<div class="modal fade" id="modallogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h4 class="modal-title">Login</h4>
+        </div>
+        <div class="modal-body">
+            <div class="container-fluid">
+				<div class="row">
+				<div class="col-xs-6"><fb:login-button id="fbloginmodal" scope="public_profile,email" size="large">Sign In</fb:login-button></div>
+				<div class="col-xs-6"><div id="googleloginmodal"></div></div>
+				</div>
+			</div>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

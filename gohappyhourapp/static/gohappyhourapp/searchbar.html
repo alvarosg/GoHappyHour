@@ -1,0 +1,92 @@
+<!doctype html>
+
+<link rel="stylesheet" type="text/css" href="/static/gohappyhourapp/searchbar.css" />
+
+<script type="text/javascript" src="/static/gohappyhourapp/searchbar.js"></script>
+
+
+
+<div class="container-fluid" id="containersearch">
+<div class="row">
+<div class="col-xs-12"><input id="searchbox" type="text" class="form-control input-block" placeholder="Search locations" ></div>
+</div>
+<div class="row">
+<div class="col-xs-12"><div id="searchresults"></div></div>
+</div>
+<div class="row">
+<div class="col-xs-12"><div id="placeresults"></div></div>
+</div>
+<div class="row">
+<div class="col-xs-12">
+<div id="searchoptions" class="show panel panel-default">
+<div class="panel-body" id="optionspanelbody">
+
+<div class="row">
+<div class="col-xs-12">
+Include locations in search:
+</div>
+</div>
+<div class="row">
+<div class="col-xs-12">
+<input type="checkbox" id = "notoffernowcheck" value="">  With offers at other times
+</div>
+</div>
+
+<div class="row">
+<div class="col-xs-12">
+<input type="checkbox" id = "alllocationscheck" value=""/>  Available for new offers
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="containerlocationview"></div>
+<div id="containernewlocation"}></div>
+
+
+
+<script id="locationbuttonstemplate" type="text/template">
+{{#each results}}
+<div class="row">
+<div class="col-xs-12">
+{{#if offernow}}
+    <button id=searchresult{{@index}} class="btn btn-danger btn-block btnwrap" type="button">
+{{else}}
+	<button id=searchresult{{@index}} class="btn btn-info btn-block btnwrap" type="button">
+{{/if}}
+
+<div class="col-xs-10 text-left"><p>{{name}}</p></div>
+{{#if locationpictures.0.thumbnail}}
+<div class="col-xs-1"><img src={{locationpictures.0.thumbnail}} class="image-responsive buttonimage pull-right"></div>
+{{/if}}
+</button>
+</div>
+</div>
+{{/each}}
+<div class="row">
+<div class="col-xs-12">
+<button id=resultcount class="btn btn-default btn-block btnwrap" type="button"> {{finaltext}}</button>
+</div>
+</div>
+</script>
+
+<script id="placebuttonstemplate" type="text/template">
+{{#each results}}
+<div class="row">
+<div class="col-md-12">
+<button id=placeresult{{@index}} class="btn btn-info btn-block btnwrap" type="button">
+<p>{{name}}</p>
+</button>
+</div>
+</div>
+{{/each}}
+<div class="row">
+<div class="col-md-12">
+<button id=placecount class="btn btn-default btn-block btnwrap" type="button"> {{finaltext}}</button>
+</div>
+</div>
+</script>

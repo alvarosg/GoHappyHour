@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% if lat %}
+    <meta name="latitude" content={{lat}}>
+  {% endif %}
+  {% if long %}
+    <meta name="longitude" content={{long}}>
+  {% endif %}
+  {% if zoom %}
+    <meta name="zoom" content={{zoom}}>
+  {% endif %}
+  {% if locid %}
+    <meta name="locid" content={{locid}}>
+  {% endif %}
+  {% if locoption %}
+    <meta name="locoption" content={{locoption}}>
+  {% endif %}
+  {% if offerid %}
+    <meta name="offerid" content={{offerid}}>
+  {% endif %}
+  {% if offeroption %}
+    <meta name="offeroption" content={{offeroption}}>
+  {% endif %}
+
+
+  <meta name="google-signin-client_id" content="521314442733-4gmpuhs2ik5rclu6bmjnch9hutb08qum.apps.googleusercontent.com">
+  <title>Go-HappyHour.com</title>
+    {% load staticfiles %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'gohappyhourapp/mapview.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'gohappyhourapp/bootstrap/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'gohappyhourapp/bootstrap-fileinput-master/css/fileinput.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'gohappyhourapp/datetimepicker/css/bootstrap-datetimepicker.min.css' %}" />
+    <!--<link rel="stylesheet" type="text/css" href="{% static 'gohappyhourapp/datepicker/css/bootstrap-datepicker3.min.css' %}" />-->
+
+
+    <script src="{% static 'gohappyhourapp/handlebars-v3.0.3.js' %}"></script>
+    <script src="{% static 'gohappyhourapp/jquery-1.10.2.js' %}"></script>
+    
+    <script src="https://apis.google.com/js/platform.js"></script>  
+    <script src="https://maps.googleapis.com/maps/api/js"></script> 
+    <script src="//connect.facebook.net/en_US/all.js"></script>
+    
+
+    <script type="text/javascript" src="{% static 'gohappyhourapp/markerwithlabel_packed.js' %}"></script>
+    <script type="text/javascript" src="{% static 'gohappyhourapp/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'gohappyhourapp/moment-with-locales.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'gohappyhourapp/datetimepicker/js/bootstrap-datetimepicker.min.js' %}"></script>
+    <!--<script type="text/javascript" src="{% static 'gohappyhourapp/datepicker/js/bootstrap-datepicker.min.js' %}"></script>-->
+    <script type="text/javascript" src="{% static 'gohappyhourapp/bootstrap-fileinput-master/js/fileinput.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'gohappyhourapp/urlmaker.js' %}"></script>
+    <script type="text/javascript" src="{% static 'gohappyhourapp/mapview.js' %}"></script>
+    
+    
+
+</head>
+<body>
+
+
+<div id="map-canvas"></div>
+
+
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-offset-1 col-md-9 col-sm-9 col-xs-12"><div id="positionlogin"></div></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-offset-1 col-md-3 col-sm-6 col-xs-12"><div id="positionsearch"></div></div>
+    </div>  
+</div>
+
+  
+
+ 
+</body>
+</html>

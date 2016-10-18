@@ -1,0 +1,123 @@
+<!doctype html>
+
+
+<link rel="stylesheet" type="text/css" href="/static/gohappyhourapp/locationview.css" />
+
+<script type="text/javascript" src="/static/gohappyhourapp/locationview.js"></script>
+
+
+<div class="modal fade" id="modallocationview" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h4 class="modal-title">Location</h4>
+        </div>
+        <div class="modal-body">
+            <div id="locationdiv"></div>  
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div id="containernewoffer"></div>
+<div id="containerofferview"></div>
+
+<script id="locationtemplate" type="text/template">
+{{#if id }}
+    <div class="container-fluid" id="textlocation">
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="containerlocationimage" id="containerlocationimage">
+                <img class="img-responsive center-block" id="locationimage"src={{ locationpictures.0.picture }} />
+            </div>
+        </div>
+        <div class="col-sm-5">
+            <div class="container-fluid">
+                <div id="map-location-container">
+                    <div id="map-location-canvas" class="center-block"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 h1"><div id="locationame" >{{ name }}</div></div>
+        <div class="col-sm-3 text-right"><button id="picturesbutton" type="button" class="btn btn-success">Find More Pictures</button></div>
+        <div class="col-sm-3 text-right"><button id="addofferbutton" type="button" class="btn btn-success">Add new offer</button></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 h3"><div id="locationaddress" >{{ address }}</div></div>
+    </div>
+
+    
+    {{#each offers }}
+        <div class="row">
+            <div class="col-sm-12">
+            <button id=offerbutton{{@index}} class=offerbutton type=button>
+            <div class="locationoffername">{{ name }}</div>
+            <div class="locationofferranges">
+            {{#each offertimeranges }}
+                <div class="locationofferrange">
+                {{#each weekdaystrs }}
+                {{ dayrange }}{{#unless @last}},{{/unless}}{{#if @last}}:{{/if}}
+                {{/each}}
+                {{time_start_format}}-{{time_end_format}}
+                </div>
+            {{/each}}
+            </div>
+            </button>
+            </div>
+        </div>
+    {{/each}}
+    </div>
+{{else }}
+    <p>Location does not exist</p>
+{{/if}}
+</script>
+
+<script id="picturescarouseltemplate" type="text/template">
+{{#if count }}    
+
+
+<div id="externalpicturescarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    {{#each results }}
+    {{#if @first }}
+    <li data-target="#externalpicturescarousel" data-slide-to={{@index}} class="active"></li>
+    {{else}}
+    <li data-target="#externalpicturescarousel" data-slide-to={{@index}}></li>
+    {{/if}}
+    {{/each}}
+    
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+  {{#each results }}
+  {{#if @first }}
+    <div class="item active">
+    {{else}}
+    <div class="item">
+    {{/if}}
+    
+      <img class="img-responsive center-block" src={{url}}>
+    </div>
+  {{/each}} 
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#externalpicturescarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#externalpicturescarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+{{else }}
+    <p>0 pictures found</p>
+{{/if}}
+</script>
+
